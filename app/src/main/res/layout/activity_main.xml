@@ -64,7 +64,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Улий3"
+                android:text="Улий 3"
                 android:id="@+id/btn_hive3"
                 android:layout_alignTop="@+id/btn_hive4"
                 android:layout_toRightOf="@+id/btn_hive4"
