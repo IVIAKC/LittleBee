@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
     public static final String TAG = "myLogs";
-    int osob;
+
 
     Alg alg;
 
@@ -38,8 +38,13 @@ public class MainActivity extends Activity {
         }*/
         //---
         alg = new Alg();
-        Log.d(TAG, String.valueOf(osob));
-        Log.d(TAG, String.valueOf(Integer.toBinaryString(osob)));
+        Log.d(TAG, String.valueOf(alg.getOsob()));
+        Log.d(TAG, String.valueOf(Integer.toBinaryString(alg.getOsob())));
+
+
+        alg.getByte();
+
+
         initListener();
     }
     private void initListener(){
