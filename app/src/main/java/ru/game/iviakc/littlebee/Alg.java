@@ -12,27 +12,18 @@ public class Alg {
 
     private Random random = new Random();
     private int osob;
-    public Alg() {
+    public Alg() {//Первичный конструктор до 8 бит
         this.osob = random.nextInt()%127;
         this.osob=Math.abs(this.osob);
+    }
+    public Alg(int os){//Конструктор для рекамбинаторики
+        this.osob=os;
     }
 
     public int getOsob() {
         return osob;
     }
-
-    public void setOsob(int osob) {
-        this.osob = osob;
-    }
-
-    public void getByte(){
-        byte byt[];
-        Integer.
-        Log.d(TAG, String.valueOf(Integer.bitCount(osob)));
-    }
-
-    public Alg recom(Alg A){
-
-        return this;
+    public String getBinary(){
+        return Integer.toBinaryString(osob);
     }
 }

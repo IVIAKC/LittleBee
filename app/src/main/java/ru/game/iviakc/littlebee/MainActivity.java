@@ -10,7 +10,7 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-    public static final String TAG = "myLogs";
+    public static final String TAG = "myLogs ";
 
 
     Alg alg;
@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 
     //Исправить после добовления графики
     //-----
-    Button btnInventar,btnShop,btnHive[];
+    Button btnInventar,btnShop;
 
     //------
 
@@ -27,26 +27,27 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Исправить после добавления графики
-        //---
 
-        btnInventar= (Button) findViewById(R.id.btn_inventar);
-        btnShop = (Button) findViewById(R.id.btn_shop);
-        /*Разобраться как работать с R
-        for(int i =0;i<countHive;i++){
-            btnHive[i] = (Button) findViewById();
-        }*/
-        //---
+
         alg = new Alg();
-        Log.d(TAG, String.valueOf(alg.getOsob()));
-        Log.d(TAG, String.valueOf(Integer.toBinaryString(alg.getOsob())));
 
-
-        alg.getByte();
-
+        Log.d(TAG, alg.getBinary()+"  Бинарная строка числа  "+String.valueOf(alg.getOsob()));
 
         initListener();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void initListener(){
         btnInventar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +56,6 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-
         btnShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
