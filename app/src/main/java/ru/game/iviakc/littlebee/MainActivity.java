@@ -2,39 +2,82 @@ package ru.game.iviakc.littlebee;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 
 public class MainActivity extends Activity {
     public static final String TAG = "myLogs ";
 
-
-    Alg alg;
-
-    public static final int countHive=4;
+    String Astr,Bstr;
+    Osob A,B;
 
     //Исправить после добовления графики
     //-----
     Button btnInventar,btnShop;
-
     //------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        A=new Osob();
+        B=new Osob();
+
+        A.printSetings();
+
+        B.printSetings();
 
 
-        alg = new Alg();
+        Astr=A.getBinary();  Bstr=B.getBinary();
+        if(Astr.length()!=Bstr.length()){//условия приравнивания
+            int num=Astr.length()-Bstr.length();
 
-        Log.d(TAG, alg.getBinary()+"  Бинарная строка числа  "+String.valueOf(alg.getOsob()));
+            String str0="";
+            Log.e(TAG,"num = "+num);
+            if(num<0) {
+                num =Math.abs(num);
+                for(int i=0;i<num;i++)
+                    str0=str0.concat("0");
+                Astr=str0.concat(Astr);
+                Log.e(TAG,"Astr = "+Astr);
+            }else{
+                for(int i=0;i<num;i++)
+                    Bstr = Bstr.concat("0");
+                Log.e(TAG,"Bstr = "+Bstr);
+            }
 
-        initListener();
-    }
+
+
+
+        }
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
