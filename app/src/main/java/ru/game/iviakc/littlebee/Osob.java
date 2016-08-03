@@ -8,57 +8,79 @@ import android.util.Log;
 public class Osob {
     public static final String TAG = "myLogs ";
 
-    String[] gen;//гены
-    int N=1;
+    int[] gen;//гены
+    int N=2;
+    String name ="";
 
-    public Osob() {
+    public Osob(String name) {
 
-        gen = new String[N];
+        gen = new int[N];
+        this.name=name;
 
     }
-    public String[] getGen() {
+    public Osob(String name ,int[] inpGen) {
+
+        gen = new int[N];
+        this.name=name;
+        setGen(inpGen);
+    }
+
+
+    public int[] getGen() {
         return gen;
     }
 
-    public void setGen(String[] gen) {
+    public void setGen(int[] gen) {
         this.gen = gen;
     }
 
-    public void repr(){
-        while (true) {
+    public Osob reprod(Osob dron){
 
-            break;
+        int[] tmp;
+
+        tmp=dron.getGen();
+
+        return new Osob("Child",tmp);
+    }
+
+    public void consol(){
+        Log.d(TAG,name);
+        String str="";
+        for(int i=0;i<gen.length;i++) {
+            str +=Integer.toString(gen[i])+" ";
+        }
+        Log.d(TAG,str);
+    }
+
+    /*
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int count = fuctorial(arr.length);
+        int max = arr.length - 1;
+        System.out.println("Вариантов " + count);
+        int shift = max;
+        while (count > 0) {
+            int t = arr[shift];
+            arr[shift] = arr[shift - 1];
+            arr[shift - 1] = t;
+            print(arr);
+            count--;
+            if (shift < 2) {
+                shift = max;
+            } else {
+                shift--;
+            }
         }
     }
 
-/*
-char s[N+1], t;
-int i, j, r, k;
- for(i=0; i<N; i++)
-    s[i] = '1'+i;
- s[N] = '\0';
- while(1) {
-   printf("%s\n", s);  // Вывод очередной перестановки
+    static void print(int[] arr) {
+        System.out.println(Arrays.toString(arr));
+    }
 
-   for(i=N-1; i>=0 && s[i] > s[i+1]; i--) ;  // Находим самое правое место, где s[i] < s[i+1]
-   if (i<0) break; // Уже получили "654321" - самую старшую перестановку
-       // Находим s[j] - наименьший элемент справа от s[i] и больший его
-   for(j=N-1; s[i] > s[j]; j--) ;
-       // Меняем s[i] <-> s[j]
-   t = s[j];
-   s[j] = s[i];
-   s[i] = t;
-       // То, что за "i" - переворачиваем
-   for(k=i+1, r=N-1; r > k; k++, r--) {
-     t = s[r];
-     s[r] = s[k];
-     s[k] = t;
-   }
- }
- */
+    static int fuctorial(int n) {
+        return (n > 0) ? n * fuctorial(n - 1) : 1;
+    }
 
-
-
-
-
+     */
 }

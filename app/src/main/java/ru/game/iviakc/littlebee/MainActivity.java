@@ -12,13 +12,14 @@ import android.widget.Switch;
 public class MainActivity extends Activity {
     public static final String TAG = "myLogs ";
 
-    public static final int N=8;
+    public static final int N=2;
 
-    Osob Dron = new Osob();
-    Osob Prin = new Osob();
+    Osob Dron = new Osob("Dron");
+    Osob Prin = new Osob("Prin");
+    Osob Child;
 
-    String[] dronGen = new String[N];
-    String[] prinGen = new String[N];
+    int[] dronGen = new int[N];
+    int[] prinGen = new int[N];
 
     //Исправить после добовления графики
     //-----
@@ -30,52 +31,39 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dronGen[0]="1";
-        dronGen[1]="2";
-        dronGen[2]="3";
-        dronGen[3]="4";
-        dronGen[4]="5";
-        dronGen[5]="6";
-        dronGen[6]="7";
-        dronGen[7]="8";
+        dronGen[0]=0;
+        dronGen[1]=0;
 
-        prinGen[0]="A";
-        prinGen[1]="A";
-        prinGen[2]="B";
-        prinGen[3]="B";
-        prinGen[4]="C";
-        prinGen[5]="C";
-        prinGen[6]="D";
-        prinGen[7]="D";
+        prinGen[0]=0;
+        prinGen[1]=1;
 
         Dron.setGen(dronGen);
         Prin.setGen(prinGen);
+/*
+        Dron.consol();
+        Prin.consol();
 
-        print();
-        Dron.repr();
+        String[] dronStr = {"A","A"};
+        String[] prinStr = {"A","a"};
 
-     }
 
-    public void print(){
-        String dronActiv="";
+        for(int i=0;i<dronStr.length;i++){
 
-        String prinActiv="";
-
-        for(int i=0;i<N;i++) {
-            if(i%2==0) {
-                dronActiv += " " + Dron.getGen()[i];
-                prinActiv += " " + Prin.getGen()[i];
-            }else {
-                dronActiv +=Dron.getGen()[i];
-                prinActiv +=Prin.getGen()[i];
+            for(int j=0;j<dronStr.length;j++){
+                //Log.d(TAG, dronStr[i]+prinStr[j]);
             }
-
         }
-        Log.d(TAG + "dronGen", dronActiv);
-        Log.d(TAG + "prinGen", prinActiv);
-        Log.d(TAG," ");
 
+
+        Child = Prin.reprod(Dron);
+        Child.consol();*/
+
+        Bees f =new Bees("A","a");
+        Bees t =new Bees("A","A");
+
+        f.print();
+        t.print();
+        f.rep(t);
     }
-
 
 }
